@@ -12,13 +12,13 @@ export default class Header extends NativeBaseComponent {
         return {
             navbar: {
                 backgroundColor: this.getTheme().toolbarDefaultBg,
-                justifyContent: 'space-between',
+                justifyContent: (!Array.isArray(this.props.children)) ? 'center' : 'space-between',
                 flexDirection: 'row',
                 alignItems: 'center',
-                paddingTop: (Platform.OS === 'ios' ) ? 20 : 12,
+                padding: 15,
+                paddingTop: (Platform.OS === 'ios' ) ? 27 : 12,
                 height: this.getTheme().toolbarHeight,
                 elevation: 3,
-                flex: 1,
                 borderBottomWidth: (Platform.OS === 'ios' ) ? 1 : 0,
                 borderBottomColor: this.getTheme().headerBorder,
             },
@@ -51,17 +51,17 @@ export default class Header extends NativeBaseComponent {
                 </View>}
 
                 { Array.isArray(this.props.children) &&
-                <View style={{flex: 1, justifyContent : 'flex-start', alignItems: 'flex-start', flexDirection: 'row', borderWidth: 1}}>
+                <View style={{flex: 1, justifyContent: 'flex-start', flexDirection: 'row', alignItems: 'flex-start', paddingTop: 5, marginLeft: -15}}>
                     {this.props.children[0]}
                 </View>}
 
                 { Array.isArray(this.props.children) &&
-                <View style={{flex: 3, alignSelf: 'center', borderWidth: 1}}>
+                <View style={{flex: 3, alignSelf: 'center', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
                     {this.props.children[1]}
                 </View>}
 
                 { Array.isArray(this.props.children) &&
-                <View style={{flex: 1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', paddingLeft: 5, borderWidth: 1}}>
+                <View style={{flex:1,alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', paddingLeft: 5, marginRight: -12}}>
                     {this.props.children[2]}
                 </View>}
             </View>

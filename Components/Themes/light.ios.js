@@ -14,9 +14,9 @@ module.exports = {
 	textColor: "#000",
 
 	fontSizeBase: 15,
-	titleFontSize: 20,
+	titleFontSize: 18,
 
-	headerButtonColor: "#ffffff",
+	headerButtonColor: "rgba(0, 137, 255, 0.98)",
 
 	get fontSizeH1 () {
         return this.fontSizeBase*1.8;
@@ -50,8 +50,8 @@ module.exports = {
     },
 
     footerHeight: 55,
-    toolbarHeight: 56,
-    toolbarDefaultBg: "#039BE5",
+    toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 55,
+    toolbarDefaultBg: "rgba(247, 247, 247, 0.63)",
     toolbarInverseBg: "#222",
 
 		tabBgColor: "#3b8355",
@@ -60,8 +60,8 @@ module.exports = {
 		get darkenHeader() {
 			return Color(this.toolbarDefaultBg).darken(0.03).hexString();
 		},
-		get statusBarColor() {
-			return Color(this.toolbarDefaultBg).darken(0.15).hexString();
+		get headerBorder() {
+			return Color(this.toolbarDefaultBg).darken(0.03).hexString();
 		},
     get btnPrimaryBg () {
         return this.brandPrimary;
@@ -123,7 +123,7 @@ module.exports = {
     listItemPadding: 15,
     listNoteColor: "#58575C",
 
-    iconFontSize: 27,
+    iconFontSize: 35,
 
     badgeColor: "#fff",
     badgeBg: "#ED1727",
